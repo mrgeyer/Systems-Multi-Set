@@ -77,7 +77,7 @@ function destroyClickedElement(event)
 function saveAnswersAsFile() {	
 	var textToSave = answers.join("\n");
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-	var fileNameToSaveAs = "classtrisSystemLinearEquations" + dv + ".txt";
+	var fileNameToSaveAs = "classtrisSystemLinearEquationsAnswers" + dv + ".txt";
 	var downloadLink = document.createElement("a");
 	downloadLink.download = fileNameToSaveAs;
 	downloadLink.innerHTML = "Download File";
