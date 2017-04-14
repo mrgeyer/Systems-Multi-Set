@@ -36,10 +36,10 @@ function saveTextAsFile() {
 		}
 		if (Math.random() > .5) {
 			sign2 = '+';
-			c2 = a2*x + b2*y;
+			c2 = Math.round((a2*x + b2*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		} else {
 			sign2 = '-';
-			c2 = a2*x - b2*y;
+			c2 = Math.round((a2*x - b2*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		}
 		questions += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		questions += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
