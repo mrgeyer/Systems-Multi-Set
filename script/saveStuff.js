@@ -41,8 +41,11 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = a2*x - b2*y;
 		}
-		questions[i] = a1 + "x " + sign1 + " " + b1 + "y = " + c1 + "<br>" + a2 + "x + " " + sign2 + " " + b2 + "y = " + c1;
-		answers[i] = a1 + "x " + sign1 + " " + b1 + "y = " + c1 + "\n" + a2 + "x " + sign2 + " " + b2 + "y = " + c1 + "\n(" + x + ", " + y + ")\n\n";
+		questions[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString
+		questions[i] += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c1.toString();
+		answers[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString
+		answers[i] += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c1.toString()
+		answers[i] += "\n(" + x.toString() + ", " + y.toString() + ")\n\n";
 	}
 
     var textToSave = questions.join("\n");
