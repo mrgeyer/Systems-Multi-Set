@@ -5,7 +5,7 @@ function saveTextAsFile()
 {	var nQ = document.getElementById("nQuest").value;
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
-	var sigDigs = 	var maxCoeff = document.getElementById("sigDig").value;
+	var sigDigs = document.getElementById("sigDig").value;
  	questions = [];
  	answers = [];
  	for (var i = 0; i < nQ; i++) {
