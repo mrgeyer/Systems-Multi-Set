@@ -19,7 +19,7 @@ function saveTextAsFile() {
 			a1 = 0-a1;
 		}
 		if (Math.random() > .5) {
-			b1 = 0-b1;
+			a2 = 0-a2;
 		}
 		if (Math.random() > .5) {
 			x = 0-x;
