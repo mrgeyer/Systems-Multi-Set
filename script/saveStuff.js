@@ -1,13 +1,13 @@
 d = Date();
 dv = d.valueOf();
+questions = "";
+answers = "Answers for Classtris System of Linear Equations\n" + d + "\n\n";
 
 function saveTextAsFile() {
 	var nQ = document.getElementById("nQuest").value;
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
 	var sigDigs = document.getElementById("sigDig").value;
- 	questions = "";
- 	answers = "";
  	for (var i = 0; i < nQ; i++) {
 		a1 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
 		b1 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
@@ -43,10 +43,9 @@ function saveTextAsFile() {
 		}
 		questions += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		questions += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
-		answers = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		answers += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString();
 		answers += "\n(" + x.toString() + ", " + y.toString() + ")\n\n";
-		answers
 	}
 
     var textToSave = questions;
