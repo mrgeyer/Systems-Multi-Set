@@ -7,14 +7,14 @@ function saveTextAsFile() {
 	var nQ = document.getElementById("nQuest").value;
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
-	var sigDigs = document.getElementById("sigDig").value;
+	var sigDigs = document.getElementById("sigDig").value-1;
  	for (var i = 0; i < nQ; i++) {
-		a1 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
-		b1 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
-		a2 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
-		b2 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);	
-		x =  round(Math.random()*maxAns*pow(10,sigDigs))/pow(10,sigDigs);
-		y =  round(Math.random()*maxAns*pow(10,sigDigs))/pow(10,sigDigs);
+		a1 = Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		b1 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		a2 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		b2 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);	
+		x =   Math.round(Math.random()*maxAns* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		y =   Math.round(Math.random()*maxAns* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		if (Math.random() > .5) {
 			a1 = 0-a1;
 		}
