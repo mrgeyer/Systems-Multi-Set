@@ -6,8 +6,8 @@ function saveTextAsFile() {
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
 	var sigDigs = document.getElementById("sigDig").value;
- 	questions = [];
- 	answers = [];
+ 	questions = "";
+ 	answers = "";
  	for (var i = 0; i < nQ; i++) {
 		a1 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
 		b1 = round(Math.random()*maxCoeff*pow(10,sigDigs))/pow(10,sigDigs);
@@ -41,14 +41,15 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = a2*x - b2*y;
 		}
-		questions[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
-		questions[i] += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString();
-		answers[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
-		answers[i] += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString();
-		answers[i] += "\n(" + x.toString() + ", " + y.toString() + ")\n\n";
+		questions += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		questions += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
+		answers = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString();
+		answers += "\n(" + x.toString() + ", " + y.toString() + ")\n\n";
+		answers
 	}
 
-    var textToSave = questions.join("\n");
+    var textToSave = questions;
     var fileNameToSaveAs = "classtrisSystemLinearEquations" + dv + ".txt";    
     var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
     var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
@@ -65,7 +66,7 @@ function saveTextAsFile() {
 }
 
 function saveAnswersAsFile() {	
-	var textToSave = answers.join("\n");
+	var textToSave = answers;
 	var fileNameToSaveAs = "classtrisSystemLinearEquationsAnswers" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
     var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
