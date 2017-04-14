@@ -29,45 +29,36 @@ function saveTextAsFile()
 		}
 		if (Math.random() > .5) {
 			sign1 = '+';
-			c1 = a1*x + b1*y
+			c1 = a1*x + b1*y;
 		} else {
 			sign1 = '-';
-			c1 = a1*x + b1*y
+			c1 = a1*x + b1*y;
 		}
 		if (Math.random() > .5) {
 			sign2 = '+';
-			c2 = a2*x + b2*y
+			c2 = a2*x + b2*y;
 		} else {
 			sign2 = '-';
-			c2 = a2*x - b2*y
+			c2 = a2*x - b2*y;
 		}
 		questions[i] = a1 + "x + " + b1 + "y = " + c1 + "<br>" + a2 + "x + " + b2 + "y = " + c1;
 		answers[i] = a1 + "x + " + b1 + "y = " + c1 + "\n" + a2 + "x + " + b2 + "y = " + c1 + "\n(" + x + ", " + y + ")\n\n";
 	}
-	var textToSave = questions.join("\n");
-	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-	var fileNameToSaveAs = "classtrisSystemLinearEquations" + dv + ".txt";
-	var downloadLink = document.createElement("a");
-	downloadLink.download = fileNameToSaveAs;
-	downloadLink.innerHTML = "Download File";
-	if (window.webkitURL != null)
-	{
-		// Chrome allows the link to be clicked
-		// without actually adding it to the DOM.
-		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-	}
-	else
-	{
-		// Firefox requires the link to be added to the DOM
-		// before it can be clicked.
-		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-		downloadLink.onclick = destroyClickedElement;
-		downloadLink.style.display = "none";
-		document.body.appendChild(downloadLink);
-	}
 
-	downloadLink.click();
-}
+    var textToSave = questions.join("\n");
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "classtrisSystemLinearEquations" + dv + ".txt";
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
 
 function destroyClickedElement(event)
 {
