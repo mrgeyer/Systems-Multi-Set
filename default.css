@@ -1,0 +1,67 @@
+<html>
+<style>
+body {
+	background-color: #333333;
+	}
+h1 { text-family: Arial, sans-serif;
+	font-size: 40px;
+	}
+h2 { text-family: Arial, sans-serif;
+	 color: red;
+	font-size: 20px;
+	}
+h3 { text-family: Arial, sans-serif;
+	 color: orange;
+	font-size: 20px;
+	}
+h4 { text-family: Arial, sans-serif;
+	 color: yellow;
+	font-size: 20px;
+	}
+h5 { text-family: Arial, sans-serif;
+	 color: magenta;
+	font-size: 20px;
+	}
+th {
+	vertical-align: top;
+}
+td {
+	text-align: center;
+	vertical-align: top;
+    border: 10px solid gray;
+	border-style: double;
+    padding: 5px;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+studentCols td {
+	width: 100px;
+}
+.question {
+	text-family: Arial, sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+table {
+    border-spacing: 5px;
+	background-color: #333333;
+}
+.CTbutton {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a {
+    color: white;
+}
+</style>
+</html>
