@@ -16,16 +16,16 @@ function saveTextAsFile() {
 		x =  round(Math.random()*maxAns*pow(10,sigDigs))/pow(10,sigDigs);
 		y =  round(Math.random()*maxAns*pow(10,sigDigs))/pow(10,sigDigs);
 		if (Math.random() > .5) {
-			a1 = a1*-1;
+			a1 = 0-a1;
 		}
 		if (Math.random() > .5) {
-			b1 = b1*-1;
+			b1 = 0-b1;
 		}
 		if (Math.random() > .5) {
-			x = x*-1;
+			x = 0-x;
 		}
 		if (Math.random() > .5) {
-			y = y*-1;
+			y = 0-y;
 		}
 		if (Math.random() > .5) {
 			sign1 = '+';
@@ -41,7 +41,7 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = a2*x - b2*y;
 		}
-		questions[i] = a1 + "x " + sign1 + " + b1 + "y = " + c1 + "<br>" + a2 + "x + " " + sign2 + " " + b2 + "y = " + c1;
+		questions[i] = a1 + "x " + sign1 + " " + b1 + "y = " + c1 + "<br>" + a2 + "x + " " + sign2 + " " + b2 + "y = " + c1;
 		answers[i] = a1 + "x " + sign1 + " " + b1 + "y = " + c1 + "\n" + a2 + "x " + sign2 + " " + b2 + "y = " + c1 + "\n(" + x + ", " + y + ")\n\n";
 	}
 
