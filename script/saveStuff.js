@@ -41,10 +41,10 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = a2*x - b2*y;
 		}
-		questions[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString
-		questions[i] += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c1.toString();
-		answers[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString
-		answers[i] += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c1.toString()
+		questions[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		questions[i] += "<br>" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString();
+		answers[i] = a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		answers[i] += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString();
 		answers[i] += "\n(" + x.toString() + ", " + y.toString() + ")\n\n";
 	}
 
