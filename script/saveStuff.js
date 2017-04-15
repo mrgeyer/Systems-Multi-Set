@@ -88,9 +88,9 @@ function saveWorksheetAsFile() {
 	var textToSave = "System of Linear Equations Worksheet\n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
 		textToSave += (i+1) + ". " + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
-		textToSave += "     " + (i+2) + ". " + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
+		textToSave += "         " + (i+2) + ". " + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
 		textToSave += "\n    " + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
-		textToSave += "         " + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
+		textToSave += "             " + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
 	}
 	var fileNameToSaveAs = "classtrisSystemLinearEquationsAnswers" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
