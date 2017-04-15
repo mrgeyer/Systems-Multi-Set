@@ -1,10 +1,10 @@
-var d = document.getElementById("setN").value;
-var dv = d;
 var questions = "";
 var answers = "Answers for Classtris System of Linear Equations\n" + d + "\n\n";
 var worksheet = [];
 
 function saveTextAsFile() {
+	d = document.getElementById("setN").value;
+	dv = d;
 	var nQ = document.getElementById("nQuest").value;
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
