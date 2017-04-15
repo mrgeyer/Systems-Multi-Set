@@ -8,7 +8,7 @@ function saveTextAsFile() {
 	var nQ = document.getElementById("nQuest").value;
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
-	var sigDigs = document.getElementById("sigDig").value-1;
+	var sigDigs = document.getElementById("sigDig").value;
  	for (var i = 0; i < nQ; i++) {
 		a1 = Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		b1 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
