@@ -92,7 +92,7 @@ function saveWorksheetAsFile() {
 		textToSave += "\n    " + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
 		textToSave += "             " + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
 	}
-	var fileNameToSaveAs = "classtrisSystemLinearEquationsAnswers" + dv + ".txt";
+	var fileNameToSaveAs = "classtrisSystemLinearEquationsWorsheet" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
     var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
  
