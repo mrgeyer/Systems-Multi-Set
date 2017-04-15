@@ -42,11 +42,11 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = Math.round((a2*x - b2*y)*Math.pow(10,sigDigs*2))/ Math.pow(10,sigDigs*2);
 		}
-		questions += i + ". " + a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		questions += (i+1) + ". " + a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		questions += "<br>&#160;&#160;&#160;&#160;" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
 		//answers += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		//answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString() + '\n';
-		answers += i + ". (" + x.toString() + ", " + y.toString() + ")\n\n";
+		answers += (i+1) + ". (" + x.toString() + ", " + y.toString() + ")\n\n";
 		wsi = [a1,b1,c1,sign1,a2,b2,c2,sign2];
 		worksheet.push(wsi);
 	}
@@ -87,10 +87,10 @@ function saveAnswersAsFile() {
 function saveWorksheetAsFile() {	
 	var textToSave = "System of Linear Equations Worksheet\n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
-		textToSave += i + ". " + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
-		textToSave += "     " + (i+1) + ". " + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
-		textToSave += "    " + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
-		textToSave += "         " + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6];		
+		textToSave += (i+1) + ". " + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
+		textToSave += "     " + (i+2) + ". " + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
+		textToSave += "\n    " + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
+		textToSave += "         " + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
 	}
 	var fileNameToSaveAs = "classtrisSystemLinearEquationsAnswers" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
