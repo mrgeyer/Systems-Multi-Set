@@ -42,7 +42,7 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = Math.round((a2*x - b2*y)*Math.pow(10,sigDigs*2))/ Math.pow(10,sigDigs*2);
 		}
-		questions += (i+1) + ". " + a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+		questions += (i+1) + ") " + a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		questions += "<br>&#160;&#160;&#160;&#160;" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
 		//answers += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		//answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString() + '\n';
