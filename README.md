@@ -20,7 +20,7 @@ Enter the maximum number of decimal digits you want in the equation coefficients
 
 ## Generate Questions
 
-Creates a question text file to upload to <a herf=https://punkbass.github.io/classtris/>Classtris</a>.
+Creates a question text file to upload to <a herf=https://punkbass.github.io/classtris/>Classtris</a>. https://punkbass.github.io/classtris/
 
 ## Create Worksheet
 
