@@ -1,19 +1,19 @@
 var questions = "";
 var worksheet = [];
 var qPad = "     ";
-var coefPad = "  ;"; // negative sign and decimal
+var coefPad = "  "; // negative sign and decimal
 var conPad = "  "; // negative sign and decimal
 var d = 1;
 var dv = d;
 
-function pad(padd, str, padLeft) {
-  if (typeof str === 'undefined') {
+function pad(padd, stri, padLeft) {
+  if (typeof stri === 'undefined') {
     return padd;
   }
   if (padLeft) {
-    return (padd + str).slice(0-padd.length);
+    return (padd + stri).slice(0-padd.length);
   } else {
-    return (str + padd).substring(0, padd.length);
+    return (stri + padd).substring(0, padd.length);
   }
 
 
@@ -25,15 +25,16 @@ function saveTextAsFile() {
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
 	var sigDigs = document.getElementById("sigDig").value;
-	coefPad = "  ;"; // negative sign and decimal
+	coefPad = "  "; // negative sign and decimal
 	conPad = "  "; // negative sign and decimal
-	for (i = 1; i<(maxCoeff*11); i*10) { // digits before decimal
-		coefPad += " ";
+	for (i = 1; i<(maxCoeff*11); i*10) { 
+		coefPad += " "; // digits before decimal
 	}
-	for (i = 1; i<(maxCoeff*maxAns*10); i*10) { // digits before decimal
-		conPad += " ";
+	for (i = 1; i<(maxCoeff*maxAns*10); i*10) {
+		conPad += " "; // digits before decimal
 	}
-	for (i = 1; i<sigDigs; i++) { // digits after decimal
+	// digits after decimal
+	for (i = 1; i<sigDigs; i++) { 
 		coefPad += " ";
 		conPad += "  ";
 	}
@@ -123,8 +124,10 @@ function saveAnswersAsFile() {
 function saveWorksheetAsFile() {	
 	var textToSave = "System of Linear Equations Worksheet " + d + " \n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
-		var Qn1 = pad(qPad, (i+1) + ") ", true);
-		var Qn2 = pad(qPad, (i+2) + ") ", true);
+		var qn1 = (i+1).toString + ") ";
+		var qn1 = (i+2).toString + ") ";
+		var Qn1 = pad(qPad, qn1, true);
+		var Qn2 = pad(qPad, qn1, true);
 		textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
 		textToSave += "         " + Qn2 + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
 		textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
