@@ -1,5 +1,21 @@
 var questions = "";
 var worksheet = [];
+var qPad = "     ";
+var coefPad = "  ;"; // negative sign and decimal
+var conPad = "  "; // negative sign and decimal
+var d = 1;
+var dv = d;
+
+function pad(padd, str, padLeft) {
+  if (typeof str === 'undefined') {
+    return padd;
+  }
+  if (padLeft) {
+    return (padd + str).slice(0-padd.length);
+  } else {
+    return (str + padd).substring(0, padd.length);
+  }
+
 
 function saveTextAsFile() {
 	d = document.getElementById("setN").value;
@@ -9,6 +25,18 @@ function saveTextAsFile() {
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
 	var sigDigs = document.getElementById("sigDig").value;
+	coefPad = "  ;"; // negative sign and decimal
+	conPad = "  "; // negative sign and decimal
+	for (i = 1; i<(maxCoeff*11); i*10) { // digits before decimal
+		coefPad += " ";
+	}
+	for (i = 1; i<(maxCoeff*maxAns*10); i*10) { // digits before decimal
+		conPad += " ";
+	}
+	for (i = 1; i<sigDigs; i++) { // digits after decimal
+		coefPad += " ";
+		conPad += "  ";
+	}
  	for (var i = 0; i < nQ; i++) {
 		a1 = Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		b1 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
@@ -47,7 +75,15 @@ function saveTextAsFile() {
 		//answers += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 		//answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString() + '\n';
 		answers += (i+1) + ". (" + x.toString() + ", " + y.toString() + ")\n\n";
-		wsi = [a1,b1,c1,sign1,a2,b2,c2,sign2];
+		
+		a1s = pad(coefPad, a1.toString(), true);
+		a2s = pad(coefPad, a2.toString(), true);
+		b1s = pad(coefPad, b1.toString(), true);
+		b2s = pad(coefPad, b2.toString(), true);
+		c1s = pad(conPad, c1.toString(), true);
+		c2s = pad(conPad, c2.toString(), true);
+		
+		wsi = [a1s,b1s,c1s,sign1,a2s,b2s,c2s,sign2];
 		worksheet.push(wsi);
 	}
 
@@ -87,10 +123,12 @@ function saveAnswersAsFile() {
 function saveWorksheetAsFile() {	
 	var textToSave = "System of Linear Equations Worksheet " + d + " \n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
-		textToSave += (i+1) + ") " + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
-		textToSave += "         " + (i+2) + ") " + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
-		textToSave += "\n    " + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
-		textToSave += "             " + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
+		var Qn1 = pad(qPad, (i+1) + ") ", true);
+		var Qn2 = pad(qPad, (i+2) + ") ", true);
+		textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
+		textToSave += "         " + Qn2 + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
+		textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
+		textToSave += "         " + qPad + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
 	}
 	var fileNameToSaveAs = "SysLinEqWS" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
