@@ -24,10 +24,10 @@ function saveTextAsFile() {
 	qPad = "&#160;&#160;&#160;&#160;&#160;";
 	coefPad = "&#160;&#160;"; // negative sign and decimal
 	conPad = "&#160;&#160;"; // negative sign and decimal
-	for (i = 1; i<maxCoeff*10; i*10) { // digits before decimal
+	for (i = 1; i<(maxCoeff*11); i*10) { // digits before decimal
 		coefPad += "&#160;";
 	}
-	for (i = 1; i<maxCoeff*maxAns; i*10) { // digits before decimal
+	for (i = 1; i<(maxCoeff*maxAns*10); i*10) { // digits before decimal
 		conPad += "&#160;";
 	}
 	for (i = 1; i<sigDigs; i++) { // digits after decimal
@@ -68,7 +68,7 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = Math.round((a2*x - b2*y)*Math.pow(10,sigDigs*2))/ Math.pow(10,sigDigs*2);
 		}
-		var Qn = pad(Qpad, (i+1) + ") ", true);
+		var Qn = pad(qPad, ((i+1) + ") ").toString(), true);
 		var a1s = pad(coefPad, a1, true);
 		var a2s = pad(coefPad, a2, true);
 		var b1s = pad(coefPad, b1, true);
@@ -120,12 +120,12 @@ function saveAnswersAsFile() {
 function saveWorksheetAsFile() {	
 	var textToSave = "System of Linear Equations Worksheet " + d + " \n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
-		var Qn1 = pad(Qpad, (i+1) + ") ", true);
-		var Qn2 = pad(Qpad, (i+2) + ") ", true);
+		var Qn1 = pad(qPad, (i+1) + ") ", true);
+		var Qn2 = pad(qPad, (i+2) + ") ", true);
 		textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
 		textToSave += "         " + Qn2 + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
-		textToSave += "\n" + Qpad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
-		textToSave += "         " + Qpad + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
+		textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
+		textToSave += "         " + qPad + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
 	}
 	var fileNameToSaveAs = "SysLinEqWS" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
