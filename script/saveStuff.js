@@ -6,16 +6,9 @@ var conPad = "  "; // negative sign and decimal
 var d = 1;
 var dv = d;
 
-function pad(padd, stri, padLeft) {
-  if (typeof stri === 'undefined') {
-    return padd;
-  }
-  if (padLeft) {
+function padL(padd, stri) {
     return (padd + stri).slice(0-padd.length);
-  } else {
-    return (stri + padd).substring(0, padd.length);
   }
-
 
 function saveTextAsFile() {
 	d = document.getElementById("setN").value;
@@ -77,12 +70,12 @@ function saveTextAsFile() {
 		//answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString() + '\n';
 		answers += (i+1) + ". (" + x.toString() + ", " + y.toString() + ")\n\n";
 		
-		a1s = pad(coefPad, a1.toString(), true);
-		a2s = pad(coefPad, a2.toString(), true);
-		b1s = pad(coefPad, b1.toString(), true);
-		b2s = pad(coefPad, b2.toString(), true);
-		c1s = pad(conPad, c1.toString(), true);
-		c2s = pad(conPad, c2.toString(), true);
+		a1s = padL(coefPad, a1.toString());
+		a2s = padL(coefPad, a2.toString());
+		b1s = padL(coefPad, b1.toString());
+		b2s = padL(coefPad, b2.toString());
+		c1s = padL(conPad, c1.toString());
+		c2s = padL(conPad, c2.toString());
 		
 		wsi = [a1s,b1s,c1s,sign1,a2s,b2s,c2s,sign2];
 		worksheet.push(wsi);
@@ -126,8 +119,8 @@ function saveWorksheetAsFile() {
 	for (i = 0; i < worksheet.length; i += 2) {
 		var qn1 = (i+1).toString + ") ";
 		var qn1 = (i+2).toString + ") ";
-		var Qn1 = pad(qPad, qn1, true);
-		var Qn2 = pad(qPad, qn1, true);
+		var Qn1 = padL(qPad, qn1);
+		var Qn2 = padL(qPad, qn1);
 		textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
 		textToSave += "         " + Qn2 + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
 		textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
