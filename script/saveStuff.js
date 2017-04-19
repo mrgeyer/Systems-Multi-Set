@@ -2,8 +2,9 @@ var questions = "";
 var worksheet = [];
 
 function pad(pad, str, padLeft) {
-  if (typeof str === 'undefined') 
+  if (typeof str === 'undefined') {
     return pad;
+  }
   if (padLeft) {
     return (pad + str).slice(-pad.length);
   } else {
@@ -20,7 +21,7 @@ function saveTextAsFile() {
 	var maxCoeff = document.getElementById("coeff").value;
 	var maxAns = document.getElementById("cons").value;
 	var sigDigs = document.getElementById("sigDig").value;
-	qPad = "&#160;&#160;&#160;&#160;&#160;"
+	qPad = "&#160;&#160;&#160;&#160;&#160;";
 	coefPad = "&#160;&#160;"; // negative sign and decimal
 	conPad = "&#160;&#160;"; // negative sign and decimal
 	for (i = 1; i<maxCoeff*10; i*10) { // digits before decimal
@@ -31,7 +32,7 @@ function saveTextAsFile() {
 	}
 	for (i = 1; i<sigDigs; i++) { // digits after decimal
 		coefPad += "&#160;";
-		conPad += "&#160;";
+		conPad += "&#160;&#160;";
 	}
  	for (var i = 0; i < nQ; i++) {
 		a1 = Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
