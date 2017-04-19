@@ -1,14 +1,19 @@
 var questions = "";
 var worksheet = [];
+var qPad = "&#160;&#160;&#160;&#160;&#160;";
+var coefPad = "&#160;&#160;"; // negative sign and decimal
+var conPad = "&#160;&#160;"; // negative sign and decimal
+var d = 1;
+var dv = d;
 
-function pad(pad, str, padLeft) {
+function pad(padd, str, padLeft) {
   if (typeof str === 'undefined') {
-    return pad;
+    return padd;
   }
   if (padLeft) {
-    return (pad + str).slice(-pad.length);
+    return (padd + str).slice(0-padd.length);
   } else {
-    return (str + pad).substring(0, pad.length);
+    return (str + padd).substring(0, padd.length);
   }
 }
 
@@ -17,13 +22,11 @@ function saveTextAsFile() {
 	d = document.getElementById("setN").value;
 	dv = d;
 	answers = "Answers for Classtris System of Linear Equations Set " + d + "\n\n";
-	var nQ = document.getElementById("nQuest").value;
-	var maxCoeff = document.getElementById("coeff").value;
-	var maxAns = document.getElementById("cons").value;
-	var sigDigs = document.getElementById("sigDig").value;
-	qPad = "&#160;&#160;&#160;&#160;&#160;";
-	coefPad = "&#160;&#160;"; // negative sign and decimal
-	conPad = "&#160;&#160;"; // negative sign and decimal
+	nQ = document.getElementById("nQuest").value;
+	maxCoeff = document.getElementById("coeff").value;
+	maxAns = document.getElementById("cons").value;
+	sigDigs = document.getElementById("sigDig").value;
+
 	for (i = 1; i<(maxCoeff*11); i*10) { // digits before decimal
 		coefPad += "&#160;";
 	}
@@ -35,12 +38,12 @@ function saveTextAsFile() {
 		conPad += "&#160;&#160;";
 	}
  	for (var i = 0; i < nQ; i++) {
-		a1 = Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		a1 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		b1 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		a2 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 		b2 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);	
-		x =   Math.round(Math.random()*maxAns* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
-		y =   Math.round(Math.random()*maxAns* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		x =   Math.round(Math.random()*maxAns  * Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
+		y =   Math.round(Math.random()*maxAns  * Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 
 		if (Math.random() > .5) {
 			a1 = 0-a1;
@@ -68,13 +71,14 @@ function saveTextAsFile() {
 			sign2 = '-';
 			c2 = Math.round((a2*x - b2*y)*Math.pow(10,sigDigs*2))/ Math.pow(10,sigDigs*2);
 		}
-		var Qn = pad(qPad, ((i+1) + ") ").toString(), true);
-		var a1s = pad(coefPad, a1, true);
-		var a2s = pad(coefPad, a2, true);
-		var b1s = pad(coefPad, b1, true);
-		var b2s = pad(coefPad, b2, true);
-		var c1s = pad(conPad, c1, true);
-		var c2s = pad(conPad, c2, true);
+		qn = (i+1).toString() + ") ";
+		Qn = pad(qPad, qn, true);
+		a1s = pad(coefPad, a1.toString(), true);
+		a2s = pad(coefPad, a2.toString(), true);
+		b1s = pad(coefPad, b1.toString(), true);
+		b2s = pad(coefPad, b2.toString(), true);
+		c1s = pad(conPad, c1.toString(), true);
+		c2s = pad(conPad, c2.toString(), true);
 		questions += Qn + a1s + "x " + sign1 + " " + b1s + "y = " + c1s;
 		questions += "<br>" + qPad + a2s + "x" + " " + sign2 + " " + b2s + "y = " + c2s + '\n';
 		//answers += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
@@ -104,7 +108,7 @@ function saveAnswersAsFile() {
 	var textToSave = answers;
 	var fileNameToSaveAs = "SysLinEqAns" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
-    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+	var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
  
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
