@@ -14,10 +14,10 @@ function saveTextAsFile() {
 	d = document.getElementById("setN").value;
 	dv = d;
 	answers = "Answers for Classtris System of Linear Equations Set " + d + "\n\n";
-	var nQ = document.getElementById("nQuest").value;
-	var maxCoeff = document.getElementById("coeff").value;
-	var maxAns = document.getElementById("cons").value;
-	var sigDigs = document.getElementById("sigDig").value;
+	nQ = document.getElementById("nQuest").value;
+	maxCoeff = document.getElementById("coeff").value;
+	maxAns = document.getElementById("cons").value;
+	sigDigs = document.getElementById("sigDig").value;
 	coefPad = "  "; // negative sign and decimal
 	conPad = "  "; // negative sign and decimal
 	for (i = 1; i<(maxCoeff*11); i*=10) { 
