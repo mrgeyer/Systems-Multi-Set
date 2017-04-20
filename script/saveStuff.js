@@ -116,6 +116,8 @@ function saveAnswersAsFile() {
 
 function saveWorksheetAsFile() {	
 	var textToSave = "System of Linear Equations Worksheet " + d + " \n\n";
+	textToSave += "Show work and answers on a seperate sheet of paper.\n";
+	textToSave += "Round answers to " + sigDigs + " decimal places.\n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
 		var qu1 = i+1
 		var qu2 = i+2
