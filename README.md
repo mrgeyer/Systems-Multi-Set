@@ -31,5 +31,5 @@ Creates a worksheet text file. If you're using Windows, the worksheets open bett
 Creates a text file with the answers.
 
 ### Known Issues and Workarounds
-To make multiple sets, refresh after each set. You can make sets of different types of problems by changing the inputs and clicking the button again. 
+To make multiple sets, refresh after each set. You can make sets of different types of problems by changing the inputs and clicking the "Generate Questions" button again. The new set will be appended to the older set in a new file.
 
