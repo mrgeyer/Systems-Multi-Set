@@ -143,7 +143,7 @@ function saveWorksheetAsFile() {
 			var qn1 = qu1.toString() + ") ";
 			var Qn1 = padL(qPad, qn1);
 			textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
-			textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
+			textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6] + "\n\n";
 		}
 	}
 	var fileNameToSaveAs = "SysLinEqWS" + dv + ".txt";
