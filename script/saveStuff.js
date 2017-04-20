@@ -20,10 +20,10 @@ function saveTextAsFile() {
 	var sigDigs = document.getElementById("sigDig").value;
 	coefPad = "  "; // negative sign and decimal
 	conPad = "  "; // negative sign and decimal
-	for (i = 1; i<(maxCoeff*11); i*10) { 
+	for (i = 1; i<(maxCoeff*11); i*=10) { 
 		coefPad += " "; // digits before decimal
 	}
-	for (i = 1; i<(maxCoeff*maxAns*10); i*10) {
+	for (i = 1; i<(maxCoeff*maxAns*10); i*=10) {
 		conPad += " "; // digits before decimal
 	}
 	// digits after decimal
