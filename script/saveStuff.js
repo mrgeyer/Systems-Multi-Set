@@ -124,17 +124,27 @@ function saveWorksheetAsFile() {
 	} else if (sigDigs > 1) {
 		textToSave += "Round answers to " + sigDigs + " decimal places.\n\n";
 	}
-	for (i = 0; i < worksheet.length; i += 2) {
-		var qu1 = i+1
-		var qu2 = i+2
-		var qn1 = qu1.toString() + ") ";
-		var qn2 = qu2.toString() + ") ";
-		var Qn1 = padL(qPad, qn1);
-		var Qn2 = padL(qPad, qn2);
-		textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
-		textToSave += "         " + Qn2 + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
-		textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
-		textToSave += "         " + qPad + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
+	if (sigDigs < 3) {
+		for (i = 0; i < worksheet.length; i += 2) {
+			var qu1 = i+1
+			var qu2 = i+2
+			var qn1 = qu1.toString() + ") ";
+			var qn2 = qu2.toString() + ") ";
+			var Qn1 = padL(qPad, qn1);
+			var Qn2 = padL(qPad, qn2);
+			textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
+			textToSave += "         " + Qn2 + worksheet[i+1][0] + "x " + worksheet[i+1][3] + " " + worksheet[i+1][1] + "y = " + worksheet[i+1][2];
+			textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
+			textToSave += "         " + qPad + worksheet[i+1][4] + "x " + worksheet[i+1][7] + " " + worksheet[i+1][5] + "y = " + worksheet[i+1][6] + "\n\n";		
+		}
+	} else {
+		for (i = 0; i < worksheet.length; i += 1) {
+			var qu1 = i+1
+			var qn1 = qu1.toString() + ") ";
+			var Qn1 = padL(qPad, qn1);
+			textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
+			textToSave += "\n" + qPad + worksheet[i][4] + "x " + worksheet[i][7] + " " + worksheet[i][5] + "y = " + worksheet[i][6];
+		}
 	}
 	var fileNameToSaveAs = "SysLinEqWS" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
