@@ -117,8 +117,10 @@ function saveAnswersAsFile() {
 function saveWorksheetAsFile() {	
 	var textToSave = "System of Linear Equations Worksheet " + d + " \n\n";
 	for (i = 0; i < worksheet.length; i += 2) {
-		var qn1 = (i+1).toString + ") ";
-		var qn1 = (i+2).toString + ") ";
+		var qu1 = i+1
+		var qu2 = i+2
+		var qn1 = qu1.toString + ") ";
+		var qn2 = qu2.toString + ") ";
 		var Qn1 = padL(qPad, qn1);
 		var Qn2 = padL(qPad, qn1);
 		textToSave += Qn1 + worksheet[i][0] + "x " + worksheet[i][3] + " " + worksheet[i][1] + "y = " + worksheet[i][2];
