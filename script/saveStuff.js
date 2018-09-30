@@ -116,7 +116,7 @@ function saveAnswersAsFile() {
 }
 
 function saveWorksheetAsFile() {	
-	var textToSave = "Name:_________________________________________. Period ______" \n\n";
+	var textToSave = "Name:_________________________________________. Period ______ \n\n";
 	textToSave += "System of Linear Equations Worksheet " + d + " \n\n";
 	textToSave += "Show work and answers on a separate  sheet of paper.\n";
 	if (sigDigs == 0) {
