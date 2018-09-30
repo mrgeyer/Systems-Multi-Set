@@ -37,7 +37,7 @@ function saveWorksheetAsFile() {
 	sets = document.getElementById("Nsets").value;
 	d = document.getElementById("setN").value;
 	worksheets = [];
-	answers = [];
+	answers = "";
 	dv = d;
 	nQ = document.getElementById("nQuest").value;
 	maxCoeff = document.getElementById("coeff").value;
@@ -56,8 +56,9 @@ function saveWorksheetAsFile() {
 		coefPad += " ";
 		conPad += "  ";
 	}
-	for (var seti = d; i < sets + 1; seti++) {
+	for (var seti = 0; i < sets; seti++) {
 		worksheet = [];
+		
 		answers += "Answers for Classtris System of Linear Equations Set " + seti + "\n\n";
 		
 		for (var i = 0; i < nQ; i++) {
