@@ -33,7 +33,8 @@ function saveAnswersAsFile() {
 
 function saveWorksheetAsFile() {
 	
-	//var textToSave = "";	sets = document.getElementById("Nsets").value;
+	var textToSave = "";	
+	sets = document.getElementById("Nsets").value;
 	d = document.getElementById("setN").value;
 	worksheets = [];
 	answers = [];
