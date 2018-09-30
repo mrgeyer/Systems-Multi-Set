@@ -45,14 +45,14 @@ function saveWorksheetAsFile() {
 	sigDigs = document.getElementById("sigDig").value;
 	coefPad = "  "; // negative sign and decimal
 	conPad = "  "; // negative sign and decimal
-	for (i = 1; i<(maxCoeff*11); i*=10) { 
+	for (var i = 1; i<(maxCoeff*11); i*=10) { 
 		coefPad += " "; // digits before decimal
 	}
-	for (i = 1; i<(maxCoeff*maxAns*101); i*=10) {
+	for (let i = 1; i<(maxCoeff*maxAns*101); i*=10) {
 		conPad += " "; // digits before decimal
 	}
 	// digits after decimal
-	for (i = 1; i<sigDigs; i++) { 
+	for (let i = 1; i<sigDigs; i++) { 
 		coefPad += " ";
 		conPad += "  ";
 	}
@@ -61,33 +61,33 @@ function saveWorksheetAsFile() {
 		
 		answers += "Answers for Classtris System of Linear Equations Set " + seti + "\n\n";
 		
-		for (var i = 0; i < nQ; i++) {
+		for (let i = 0; i < nQ; i++) {
 			a1 = Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 			b1 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 			a2 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 			b2 =  Math.round(Math.random()*maxCoeff* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);	
 			x =   Math.round(Math.random()*maxAns* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
 			y =   Math.round(Math.random()*maxAns* Math.pow(10,sigDigs))/ Math.pow(10,sigDigs);
-			if (Math.random() > .5) {
+			if (Math.random() > 0.5) {
 				a1 = 0-a1;
 			}
-			if (Math.random() > .5) {
+			if (Math.random() > 0.5) {
 				a2 = 0-a2;
 			}
-			if (Math.random() > .5) {
+			if (Math.random() > 0.5) {
 				x = 0-x;
 			}
-			if (Math.random() > .5) {
+			if (Math.random() > 0.5) {
 				y = 0-y;
 			}
-			if (Math.random() > .5) {
+			if (Math.random() > 0.5) {
 				sign1 = '+';
 				c1 = Math.round((a1*x + b1*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs*2);
 			} else {
 				sign1 = '-';
 				c1 = Math.round((a1*x + b1*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs*2);
 			}
-			if (Math.random() > .5) {
+			if (Math.random() > 0.5) {
 				sign2 = '+';
 				c2 = Math.round((a2*x + b2*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs*2);
 			} else {
@@ -120,7 +120,6 @@ function saveWorksheetAsFile() {
     var fileNameToSaveAs = "classtrisSysLinEq" + dv + ".txt";    
     var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
     var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
     downloadLink.innerHTML = "Download File";
@@ -136,7 +135,7 @@ function saveWorksheetAsFile() {
 		textToSave += "Name:_________________________________________. Period ______ \n\n";
 		textToSave += "System of Linear Equations Worksheet " + ws + " \n\n";
 		textToSave += "Show work and answers on a separate  sheet of paper.\n";
-		if (sigDigs == 0) {
+		if (sigDigs === 0) {
 			textToSave += "Round answers to whole number values.\n\n";
 		}else if (sigDigs == 1) {
 			textToSave += "Round answers to 1 decimal place.\n\n";
@@ -145,12 +144,12 @@ function saveWorksheetAsFile() {
 		}
 		if (sigDigs < 3) {
 			for (i = 0; i < worksheets[ws].length; i += 2) {
-				var qu1 = i+1
-				var qu2 = i+2
-				var qn1 = qu1.toString() + ") ";
-				var qn2 = qu2.toString() + ") ";
-				var Qn1 = padL(qPad, qn1);
-				var Qn2 = padL(qPad, qn2);
+				qu1 = i+1;
+				qu2 = i+2;
+				qn1 = qu1.toString() + ") ";
+				qn2 = qu2.toString() + ") ";
+				Qn1 = padL(qPad, qn1);
+				Qn2 = padL(qPad, qn2);
 				textToSave += Qn1 + worksheets[ws][i][0] + "x " + worksheets[ws][i][3] + " " + worksheets[ws][i][1] + "y = " + worksheets[ws][i][2];
 				textToSave += "         " + Qn2 + worksheets[ws][i+1][0] + "x " + worksheets[ws][i+1][3] + " " + worksheets[ws][i+1][1] + "y = " + worksheets[ws][i+1][2];
 				textToSave += "\n" + qPad + worksheets[ws][i][4] + "x " + worksheets[ws][i][7] + " " + worksheets[ws][i][5] + "y = " + worksheets[ws][i][6];
@@ -161,9 +160,9 @@ function saveWorksheetAsFile() {
 			}
 		} else {
 			for (i = 0; i < worksheets[ws].length; i += 1) {
-				var qu1 = i+1
-				var qn1 = qu1.toString() + ") ";
-				var Qn1 = padL(qPad, qn1);
+				qu1 = i+1;
+				qn1 = qu1.toString() + ") ";
+				Qn1 = padL(qPad, qn1);
 				textToSave += Qn1 + worksheets[ws][i][0] + "x " + worksheets[ws][i][3] + " " + worksheets[ws][i][1] + "y = " + worksheets[ws][i][2];
 				textToSave += "\n" + qPad + worksheets[ws][i][4] + "x " + worksheets[ws][i][7] + " " + worksheets[ws][i][5] + "y = " + worksheets[ws][i][6] + "\n\n";
 				if (worksheets[ws].length <= 10) {
