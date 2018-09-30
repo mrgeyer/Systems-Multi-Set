@@ -11,7 +11,29 @@ function padL(padd, stri) {
   }
 
 function saveTextAsFile() {
-	sets = document.getElementById("Nsets").value;
+
+}
+
+function saveAnswersAsFile() {	
+	var textToSave = answers;
+	var fileNameToSaveAs = "SysLinEqAns" + dv + ".txt";
+	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+function saveWorksheetAsFile() {
+	
+	//var textToSave = "";	sets = document.getElementById("Nsets").value;
 	d = document.getElementById("setN").value;
 	worksheets = [];
 	answers = [];
@@ -70,8 +92,8 @@ function saveTextAsFile() {
 				sign2 = '-';
 				c2 = Math.round((a2*x - b2*y)*Math.pow(10,sigDigs*2))/ Math.pow(10,sigDigs*2);
 			}
-			questions += (i+1) + ") " + a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
-			questions += "<br>&#160;&#160;&#160;&#160;" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
+			//questions += (i+1) + ") " + a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
+			//questions += "<br>&#160;&#160;&#160;&#160;" + a2.toString() + "x" + " " + sign2 + " " + b2.toString() + "y = " + c2.toString()+ '\n';
 			//answers += a1.toString() + "x " + sign1 + " " + b1.toString() + "y = " + c1.toString();
 			//answers += "\n" + a2.toString() + "x " + sign2 + " " + b2.toString() + "y = " + c2.toString() + '\n';
 			answers += (i+1) + ". (" + x.toString() + ", " + y.toString() + ")\n\n";
@@ -91,7 +113,7 @@ function saveTextAsFile() {
 	    }
 		  
      }
-
+/*
     var textToSave = questions;
     var fileNameToSaveAs = "classtrisSysLinEq" + dv + ".txt";    
     var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
@@ -106,27 +128,7 @@ function saveTextAsFile() {
     document.body.appendChild(downloadLink);
  
     downloadLink.click();
-}
-
-function saveAnswersAsFile() {	
-	var textToSave = answers;
-	var fileNameToSaveAs = "SysLinEqAns" + dv + ".txt";
-	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
-    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
- 
-    var downloadLink = document.createElement("a");
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.innerHTML = "Download File";
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = destroyClickedElement;
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
- 
-    downloadLink.click();
-}
-
-function saveWorksheetAsFile() {
-	var textToSave = ""'
+    */
 	for (ws = 0; ws < worksheets.length; ws++) {
 	
 		textToSave += "Name:_________________________________________. Period ______ \n\n";
