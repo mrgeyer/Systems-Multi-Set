@@ -1,6 +1,6 @@
 # Classtris-Systems-of-Linear-Equations-Question-Generator
 Generates system of linear equations questions for use with Classtris.
-https://punkbass.github.io/Classtris-Systems-of-Linear-Equations-Question-Generator/
+https://mrgeyer.github.io/Classtris-Systems-of-Linear-Equations-Question-Generator/
 
 ### Set Number
 This will be added to the title of worksheets and file names to identify the worksheet and files and match them to the answer sheet. 
