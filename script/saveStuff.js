@@ -108,12 +108,14 @@ function saveWorksheetAsFile() {
 			c2s = padL(conPad, c2.toString());
 
 			wsi = [a1s,b1s,c1s,sign1,a2s,b2s,c2s,sign2];
+      console.log(wsi);
 			worksheet.push(wsi);
+
+    }
+      console.log(worksheet);
 			d = d + 1;
 			document.getElementById("setN").value = parseInt(d);
-			worsheets.push(worksheet);
-	    }
-		  
+		  worsheets.push(worksheet);
      }
 /*
     var textToSave = questions;
@@ -172,6 +174,7 @@ function saveWorksheetAsFile() {
 
 		}
 	}
+  document.getElementById("output").innerHTML = worksheets;
 	var fileNameToSaveAs = "SysLinEqWS" + dv + ".txt";
 	var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
     var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
