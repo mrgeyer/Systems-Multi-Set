@@ -80,6 +80,7 @@ function saveTextAsFile() {
 		
 		wsi = [a1s,b1s,c1s,sign1,a2s,b2s,c2s,sign2];
 		worksheet.push(wsi);
+		document.getElementById("setN").value = d+1;
 	}
 
     var textToSave = questions;
