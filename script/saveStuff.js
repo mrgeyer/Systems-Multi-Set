@@ -85,7 +85,7 @@ function saveWorksheetAsFile() {
 				c1 = Math.round((a1*x + b1*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs*2);
 			} else {
 				sign1 = '-';
-				c1 = Math.round((a1*x + b1*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs*2);
+				c1 = Math.round((a1*x - b1*y)*Math.pow(10,sigDigs))/ Math.pow(10,sigDigs*2);
 			}
 			if (Math.random() > 0.5) {
 				sign2 = '+';
